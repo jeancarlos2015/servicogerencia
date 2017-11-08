@@ -1,0 +1,89 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.sistex.cgt;
+
+
+import com.sistex.cdp.Gerente;
+import com.sistex.util.Fabrica;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.sistex.cgd.GerenteRepositorio;
+import static com.sistex.util.Tipo.GERENTE;
+
+/**
+ *
+ * @author jean
+ */
+@Service
+public class GerenteServicoImpl implements GerenteServico{
+
+   private final Fabrica fabrica = Fabrica.make(GERENTE);
+    private  GerenteRepositorio gerenteRepositorio;
+    
+    @Override
+    public List<Gerente> listAll() {
+        List<Gerente> gerentes = new ArrayList<>();
+        gerenteRepositorio.findAll().forEach(gerentes::add); //fun with Java 8
+        return gerentes;
+    }
+
+    @Override
+    public Gerente getById(Long id) {
+        return gerenteRepositorio.findOne(id);
+    }
+
+    @Override
+    public Gerente getByRg(String rg) {
+        return gerenteRepositorio.findByRg(rg);
+    }
+
+    @Override
+    public Gerente save(Gerente gerente) {
+        if(!gerenteRepositorio.exist(gerente.getRg())){
+            return gerenteRepositorio.save(gerente);
+        }
+        return fabrica.criaGerente();
+    }
+
+    @Override
+    public void delete(Long id) {
+        if(gerenteRepositorio.exists(id)){
+            gerenteRepositorio.delete(id);
+        }
+    }
+
+    @Override
+    public Gerente update(Gerente gerente) {
+        if(gerenteRepositorio.exist(gerente.getRg())){
+            gerenteRepositorio.update(gerente.getRg(), 
+                                    gerente.getEmail(),
+                                    gerente.getEndereco(), 
+                                    gerente.getNome(),
+                                    gerente.getTelefone(),
+                                    gerente.getCargo(),
+                                    gerente.getIdgerente());
+        }
+        return fabrica.criaGerente();
+    }
+
+
+    
+    @Autowired
+    public void setRepositorio(GerenteRepositorio repositorio) {
+        this.gerenteRepositorio = repositorio;
+    }
+
+    @Override
+    public List<Gerente> findAllByNome(String nome) {
+        return gerenteRepositorio.findAllByNome(nome);
+    }
+
+    
+    
+    
+}
