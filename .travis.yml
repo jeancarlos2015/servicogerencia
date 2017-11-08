@@ -12,13 +12,13 @@ before_script:
     - psql -c "ALTER USER postgres WITH PASSWORD 'ifes'" -d template1;
 addons:
   sonarcloud:
-    organization: "apikeysonarqube"
+    organization: "gerentefornecedor"
     token:
-      secure: "$SONAR_KEY_USUARIOS"
+      secure: "$SONAR_KEY_GERENTE"
 script:
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
 deploy:
  provider: heroku
  api-key:
   secure: $HEROKU_PASSWORD1
- app: servicocontroleusuarios
+ app: servicogerente
