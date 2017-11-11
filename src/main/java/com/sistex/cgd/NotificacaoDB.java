@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sistex.cgt;
+package com.sistex.cgd;
 
+import com.sistex.cgd.NotificacaoChain;
 import static com.sistex.util.Tipo.DB;
 
 /**

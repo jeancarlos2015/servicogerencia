@@ -7,7 +7,11 @@ package com.sistex.util;
 
 
 
+import com.sistex.cdp.Compra;
+import com.sistex.cdp.Fornecedor;
 import com.sistex.cdp.Gerente;
+import com.sistex.cdp.Notificacao;
+import com.sistex.cdp.Venda;
 
 /**
  *
@@ -24,6 +28,8 @@ public class Fabrica {
                 return new FabricaCompra();
             case VENDA:
                 return new FabricaVenda();
+            case FORNECEDOR:
+                return new FabricaFornecedor();
             default:
                 return new Fabrica();
                 
@@ -36,5 +42,21 @@ public class Fabrica {
         return null;
     }
    
+      public Fornecedor criaFornecedor() {
+        return null;
+    }
+    
+    public Compra criaCompra(){
+        return null;
+    }
+    
+    public Venda criaVenda(){
+        return null;
+    }
+    
+    public Notificacao criaNotificacao(){
+        return null;
+    }
+    
     
 }

@@ -12,12 +12,10 @@ import java.util.List;
  *
  * @author jean
  */
-public interface NotificacaoServicoDB {
+public interface NotificacaoServico {
     List<Notificacao> listAll();
 
     Notificacao getById(Long id);
-
-    Notificacao getByRg(String rg);
 
     Notificacao update(Notificacao notificacao);
 
@@ -25,5 +23,5 @@ public interface NotificacaoServicoDB {
 
     Notificacao save(Notificacao notificacao);
     
-    List<Notificacao> findAllByNome(String nome);
+    List<Notificacao> findAllByNotificacao(Notificacao notificacao);
 }

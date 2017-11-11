@@ -6,12 +6,40 @@
 package com.sistex.cgd;
 
 import com.sistex.cdp.Compra;
+import java.util.List;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 /**
  *
  * @author jean
  */
 public interface CompraRepositorio extends CrudRepository<Compra, Long>{
+    @Modifying
+    @Query("update Compra gerente set gerente.rg = :rg, "
+            + "gerente.email = :email,"
+            + "gerente.endereco = :endereco,"
+            + "gerente.nome = :nome,"
+            + "gerente.telefone = :telefone,"
+            + "gerente.cargo = :cargo"
+            + " where gerente.id = :id")
+    void update(@Param("rg") String rg,
+            @Param("email") String email,
+            @Param("endereco") String endereco,
+            @Param("nome") String nome,
+            @Param("telefone") String telefone,
+            @Param("cargo") String cargo,
+            @Param("id") Long id);
     
+    @Query("SELECT CASE WHEN COUNT(gerente) > 0 THEN true ELSE false END FROM Compra gerente WHERE gerente.rg = :rg")
+    boolean exist(@Param("rg") String rg);
+    
+  
+    @Query("SELECT gerente FROM Compra gerente WHERE gerente.rg= :rg")
+    Compra findByRg(@Param("rg") String rg);
+    
+    @Query("SELECT gerente FROM Compra gerente WHERE gerente.nome like %:nome%")
+    List<Compra> findAllByNome(@Param("nome") String nome);
 }

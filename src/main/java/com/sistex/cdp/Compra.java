@@ -5,7 +5,6 @@
  */
 package com.sistex.cdp;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,9 +21,9 @@ public class Compra {
     private Long idcompra=1L;
     private String nomeProduto;
     private String marca;
-    private Integer qtcompras;
+    private Integer qtcompras=0;
     private String cnpjFornecedor;
-
+    private float total_compra=0;
     public Long getIdcompra() {
         return idcompra;
     }
@@ -63,5 +62,13 @@ public class Compra {
 
     public void setCnpjFornecedor(String cnpjFornecedor) {
         this.cnpjFornecedor = cnpjFornecedor;
+    }
+
+    public float getTotal_compra() {
+        return total_compra;
+    }
+
+    public void setTotal_compra(float total_compra) {
+        this.total_compra = total_compra;
     }
 }

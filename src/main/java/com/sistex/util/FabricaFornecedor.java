@@ -5,17 +5,16 @@
  */
 package com.sistex.util;
 
+import com.sistex.cdp.Fornecedor;
+import com.sistex.util.Fabrica;
+
 /**
  *
  * @author jean
  */
-public enum Tipo {
-    NOTIFICACAO,
-    GERENTE,
-    EMAIL,
-    DB,
-    COMPRA,
-    VENDA,
-    FORNECEDOR
-    
+public class FabricaFornecedor extends Fabrica{
+    @Override
+    public Fornecedor criaFornecedor(){
+        return new Fornecedor();
+    }
 }
