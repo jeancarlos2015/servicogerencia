@@ -6,7 +6,6 @@
 package com.sistex.cgt;
 
 import com.sistex.cgd.NotificacaoRepositorio;
-import com.sistex.cgt.NotificacaoChain;
 import com.sistex.util.Tipo;
 import static com.sistex.util.Tipo.DB;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +21,7 @@ public class NotificacaoDB extends NotificacaoChain{
         super(DB);
     }
     public boolean podeEnviarNotificacaoDB(Tipo id){
-        if(id==DB){
-            return true;
-        }
-        return false;
+        return id==DB;
     }
     
     public void enviar(Tipo id){

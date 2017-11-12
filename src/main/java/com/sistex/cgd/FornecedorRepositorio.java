@@ -6,7 +6,6 @@
 package com.sistex.cgd;
 
 import com.sistex.cdp.Fornecedor;
-import java.io.Serializable;
 import java.util.List;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

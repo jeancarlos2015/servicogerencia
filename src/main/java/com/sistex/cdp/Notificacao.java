@@ -19,7 +19,7 @@ public class Notificacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idnotificacao;
-    private String data;
+    private String datastr;
     private String nomeCliente;
     private String descricao;
     private String email;
@@ -31,12 +31,12 @@ public class Notificacao {
         this.idnotificacao = idnotificacao;
     }
 
-    public String getData() {
-        return data;
+    public String getDatastr() {
+        return datastr;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setDatastr(String datastr) {
+        this.datastr = datastr;
     }
 
     public String getNomeCliente() {

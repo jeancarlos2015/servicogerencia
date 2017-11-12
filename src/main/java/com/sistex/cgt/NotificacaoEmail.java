@@ -27,13 +27,13 @@ public class NotificacaoEmail extends NotificacaoChain{
     
     public void enviaEmailSimples(EmailObj emailobj) throws EmailException {
         
-        SimpleEmail email = new SimpleEmail();
-        email.setHostName(emailobj.getHost());
-        email.addTo(emailobj.getDestinatario(), emailobj.getAssunto()); //destinatário
-        email.setFrom(emailobj.getRemetente(), emailobj.getNotificao().getNomeCliente()); // remetente
-        email.setSubject("Solicitação de material"); // assunto do e-mail
-        email.setMsg(emailobj.getNotificao().getDescricao()); //conteudo do e-mail
-        email.send(); //envia o e-mail
+        SimpleEmail email1 = new SimpleEmail();
+        email1.setHostName(emailobj.getHost());
+        email1.addTo(emailobj.getDestinatario(), emailobj.getAssunto()); //destinatário
+        email1.setFrom(emailobj.getRemetente(), emailobj.getNotificao().getNomeCliente()); // remetente
+        email1.setSubject("Solicitação de material"); // assunto do e-mail
+        email1.setMsg(emailobj.getNotificao().getDescricao()); //conteudo do e-mail
+        email1.send(); //envia o e-mail
     }
 
     public void enviaEmailAnexo(Anexo anexo) throws EmailException {
@@ -43,37 +43,37 @@ public class NotificacaoEmail extends NotificacaoChain{
         attachment.setDescription(anexo.getDescricao());
         attachment.setName(anexo.getNomeArquivo());
 
-        MultiPartEmail email = new MultiPartEmail();
-        email.setHostName(anexo.getEmail().getHost()); // o servidor SMTP para envio do e-mail
-        email.addTo(anexo.getEmail().getDestinatario(), anexo.getEmail().getNomeRemetente()); //destinatario
-        email.setFrom(anexo.getEmail().getRemetente(), anexo.getEmail().getNomeDestinatario()); //remetente
-        email.setSubject(anexo.getDescricao()); //Assunto
-        email.setMsg(anexo.getDescricao()); //conteudo do e-mail
-        email.attach(attachment); // adiciona o anexo à mensagem
+        MultiPartEmail email1 = new MultiPartEmail();
+        email1.setHostName(anexo.getEmail().getHost()); // o servidor SMTP para envio do e-mail
+        email1.addTo(anexo.getEmail().getDestinatario(), anexo.getEmail().getNomeRemetente()); //destinatario
+        email1.setFrom(anexo.getEmail().getRemetente(), anexo.getEmail().getNomeDestinatario()); //remetente
+        email1.setSubject(anexo.getDescricao()); //Assunto
+        email1.setMsg(anexo.getDescricao()); //conteudo do e-mail
+        email1.attach(attachment); // adiciona o anexo à mensagem
 
-        email.send();// envia o e-mail
+        email1.send();// envia o e-mail
 
     }
 
     public void enviaEmailHtml(EmailObj emailObj) throws EmailException, MalformedURLException {
-        HtmlEmail email = new HtmlEmail();
-        email.setHostName(emailObj.getHost());
-        email.addTo(emailObj.getDestinatario(), emailObj.getNomeDestinatario());
-        email.setFrom(emailObj.getRemetente(), emailObj.getNomeRemetente());
-        email.setSubject(emailObj.getAssunto());
+        HtmlEmail email1 = new HtmlEmail();
+        email1.setHostName(emailObj.getHost());
+        email1.addTo(emailObj.getDestinatario(), emailObj.getNomeDestinatario());
+        email1.setFrom(emailObj.getRemetente(), emailObj.getNomeRemetente());
+        email1.setSubject(emailObj.getAssunto());
 
 // adiciona uma imagem ao corpo da mensagem e retorna seu id
         URL url = new URL("http://www.apache.org/images/asf_logo_wide.gif");
-        String cid = email.embed(url, "Apache logo");
+        String cid = email1.embed(url, "Apache logo");
 
 // configura a mensagem para o formato HTML
-        email.setHtmlMsg("<html>The apache logo - <img src=\"cid:" + cid + "\"></html>");
+        email1.setHtmlMsg("<html>The apache logo - <img src=\"cid:" + cid + "\"></html>");
 
 // configure uma mensagem alternativa caso o servidor não suporte HTML
-        email.setTextMsg("Seu servidor de e-mail não suporta mensagem HTML");
+        email1.setTextMsg("Seu servidor de e-mail não suporta mensagem HTML");
 
 // envia o e-mail
-        email.send();
+        email1.send();
 
     }
 
@@ -81,9 +81,7 @@ public class NotificacaoEmail extends NotificacaoChain{
     public void enviar() {
         try {
             enviaEmailHtml(email);
-        } catch (EmailException ex) {
-            Logger.getLogger(NotificacaoEmail.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (MalformedURLException ex) {
+        } catch (EmailException | MalformedURLException ex) {
             Logger.getLogger(NotificacaoEmail.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

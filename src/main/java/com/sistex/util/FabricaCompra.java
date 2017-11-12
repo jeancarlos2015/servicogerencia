@@ -16,6 +16,7 @@ class FabricaCompra extends Fabrica {
     public FabricaCompra() {
     }
 
+    @Override
     public Compra criaCompra(){
         return new Compra();
     }
