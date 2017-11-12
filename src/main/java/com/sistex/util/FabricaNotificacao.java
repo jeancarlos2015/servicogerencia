@@ -13,9 +13,7 @@ import com.sistex.cdp.Notificacao;
  */
 class FabricaNotificacao extends Fabrica {
 
-    public FabricaNotificacao() {
-    }
-
+   
     @Override
     public Notificacao criaNotificacao(){
         return new Notificacao();

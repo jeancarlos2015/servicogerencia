@@ -13,9 +13,6 @@ import com.sistex.cdp.Gerente;
  */
 class FabricaGerente extends Fabrica {
 
-    public FabricaGerente() {
-    }
-    
     @Override
     public Gerente criaGerente(){
         return new Gerente();

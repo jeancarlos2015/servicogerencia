@@ -13,9 +13,6 @@ import com.sistex.cdp.Compra;
  */
 class FabricaCompra extends Fabrica {
 
-    public FabricaCompra() {
-    }
-
     @Override
     public Compra criaCompra(){
         return new Compra();
