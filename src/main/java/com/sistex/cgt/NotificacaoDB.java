@@ -20,16 +20,7 @@ public class NotificacaoDB extends NotificacaoChain{
     public NotificacaoDB() {
         super(DB);
     }
-    public boolean podeEnviarNotificacaoDB(Tipo id){
-        return id==DB;
-    }
-    
-    public void enviar(Tipo id){
-        if(podeEnviarNotificacaoDB(id)){
-            
-        }
-    }
-
+  
     @Override
     public void enviar() {
         notificacaoRepositorio.save(email.getNotificao());

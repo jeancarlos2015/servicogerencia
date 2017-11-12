@@ -7,6 +7,8 @@ package com.sistex.cgt;
 
 import com.sistex.cdp.EmailObj;
 import com.sistex.util.Tipo;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,18 +25,36 @@ public abstract class NotificacaoChain {
             next.setNext(forma);
         }
     }
-    
-    public boolean podeEnviar(Tipo id){
-        return false;
+    public boolean podeEnviar(Tipo tipo){
+        return idNotificacao == tipo;
     }
     
-    public abstract void enviar();
+    public void enviarNotiticacao(Tipo tipo){
+        if(podeEnviar(tipo)){
+            enviar();
+        }else{
+            if(next == null){
+                try {
+                    throw new Exception("Notificacao nao aceitavel");
+                } catch (Exception ex) {
+                    Logger.getLogger(NotificacaoChain.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            next.enviarNotiticacao(tipo);
+        }
+    }
+   
+    
     public NotificacaoChain(Tipo tipo){
         next = null;
-        
+        idNotificacao = tipo;
     }
 
    
+    
+     public abstract void enviar();
+     
+     
     public EmailObj getEmail() {
         return email;
     }

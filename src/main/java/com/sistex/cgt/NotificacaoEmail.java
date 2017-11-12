@@ -7,6 +7,7 @@ package com.sistex.cgt;
 
 import com.sistex.cdp.EmailObj;
 import com.sistex.cdp.Anexo;
+import com.sistex.util.Tipo;
 import static com.sistex.util.Tipo.EMAIL;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -76,9 +77,12 @@ public class NotificacaoEmail extends NotificacaoChain{
         email1.send();
 
     }
-
+    public boolean podeEnviarNotificacaoDB(Tipo id){
+        return id==EMAIL;
+    }
     @Override
     public void enviar() {
+        
         try {
             enviaEmailHtml(email);
         } catch (EmailException | MalformedURLException ex) {
