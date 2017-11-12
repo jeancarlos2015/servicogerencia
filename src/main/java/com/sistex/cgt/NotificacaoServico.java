@@ -5,6 +5,7 @@
  */
 package com.sistex.cgt;
 
+import com.sistex.cdp.EmailObj;
 import com.sistex.cdp.Notificacao;
 import java.util.List;
 
@@ -17,11 +18,9 @@ public interface NotificacaoServico {
 
     Notificacao getById(Long id);
 
-    Notificacao update(Notificacao notificacao);
-
     void delete(Long id);
 
-    Notificacao save(Notificacao notificacao);
+    Notificacao save(EmailObj emailObj);
     
-    List<Notificacao> findAllByNotificacao(Notificacao notificacao);
+    List<Notificacao> findAllByEmail(String email);
 }

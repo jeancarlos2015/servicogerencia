@@ -15,7 +15,6 @@ public enum Tipo {
     EMAIL,
     DB,
     COMPRA,
-    VENDA,
     FORNECEDOR
     
 }

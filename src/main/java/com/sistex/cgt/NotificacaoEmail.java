@@ -3,22 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sistex.cgd;
+package com.sistex.cgt;
 
 import com.sistex.cdp.EmailObj;
 import com.sistex.cdp.Anexo;
+import static com.sistex.util.Tipo.EMAIL;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.commons.mail.EmailAttachment;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
 import org.apache.commons.mail.MultiPartEmail;
 import org.apache.commons.mail.SimpleEmail;
 
-public class NotificacaoEmail {
+public class NotificacaoEmail extends NotificacaoChain{
+    
+    
+    public NotificacaoEmail() {
+        super(EMAIL);
+    }
     
     public void enviaEmailSimples(EmailObj emailobj) throws EmailException {
-
+        
         SimpleEmail email = new SimpleEmail();
         email.setHostName(emailobj.getHost());
         email.addTo(emailobj.getDestinatario(), emailobj.getAssunto()); //destinatário
@@ -68,5 +76,18 @@ public class NotificacaoEmail {
         email.send();
 
     }
+
+    @Override
+    public void enviar() {
+        try {
+            enviaEmailHtml(email);
+        } catch (EmailException ex) {
+            Logger.getLogger(NotificacaoEmail.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(NotificacaoEmail.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+   
 
 }

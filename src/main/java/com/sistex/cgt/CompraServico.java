@@ -17,13 +17,11 @@ public interface CompraServico {
 
     Compra getById(Long id);
 
-    Compra getByRg(String rg);
-
     Compra update(Compra compra);
 
     void delete(Long id);
 
     Compra save(Compra compra);
     
-    List<Compra> findAllByNome(String nome);
+    List<Compra> findAllByCnpj(String nome);
 }

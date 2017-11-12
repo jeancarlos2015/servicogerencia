@@ -5,7 +5,6 @@
  */
 package com.sistex.cgt;
 
-
 import com.sistex.cdp.Gerente;
 import com.sistex.util.Fabrica;
 import java.util.ArrayList;
@@ -20,11 +19,12 @@ import static com.sistex.util.Tipo.GERENTE;
  * @author jean
  */
 @Service
-public class GerenteServicoImpl implements GerenteServico{
+public class GerenteServicoImpl implements GerenteServico {
 
-   private final Fabrica fabrica = Fabrica.make(GERENTE);
-    private  GerenteRepositorio gerenteRepositorio;
-    
+    private final Fabrica fabrica = Fabrica.make(GERENTE);
+    @Autowired
+    private GerenteRepositorio gerenteRepositorio;
+
     @Override
     public List<Gerente> listAll() {
         List<Gerente> gerentes = new ArrayList<>();
@@ -44,7 +44,7 @@ public class GerenteServicoImpl implements GerenteServico{
 
     @Override
     public Gerente save(Gerente gerente) {
-        if(!gerenteRepositorio.exist(gerente.getRg())){
+        if (!gerenteRepositorio.exist(gerente.getRg())) {
             return gerenteRepositorio.save(gerente);
         }
         return fabrica.criaGerente();
@@ -52,30 +52,23 @@ public class GerenteServicoImpl implements GerenteServico{
 
     @Override
     public void delete(Long id) {
-        if(gerenteRepositorio.exists(id)){
+        if (gerenteRepositorio.exists(id)) {
             gerenteRepositorio.delete(id);
         }
     }
 
     @Override
     public Gerente update(Gerente gerente) {
-        if(gerenteRepositorio.exist(gerente.getRg())){
-            gerenteRepositorio.update(gerente.getRg(), 
-                                    gerente.getEmail(),
-                                    gerente.getEndereco(), 
-                                    gerente.getNome(),
-                                    gerente.getTelefone(),
-                                    gerente.getCargo(),
-                                    gerente.getIdgerente());
+        if (gerenteRepositorio.exist(gerente.getRg())) {
+            gerenteRepositorio.update(gerente.getRg(),
+                    gerente.getEmail(),
+                    gerente.getEndereco(),
+                    gerente.getNome(),
+                    gerente.getTelefone(),
+                    gerente.getCargo(),
+                    gerente.getIdgerente());
         }
         return fabrica.criaGerente();
-    }
-
-
-    
-    @Autowired
-    public void setRepositorio(GerenteRepositorio repositorio) {
-        this.gerenteRepositorio = repositorio;
     }
 
     @Override
@@ -83,7 +76,4 @@ public class GerenteServicoImpl implements GerenteServico{
         return gerenteRepositorio.findAllByNome(nome);
     }
 
-    
-    
-    
 }

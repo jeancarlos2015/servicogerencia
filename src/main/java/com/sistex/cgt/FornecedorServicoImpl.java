@@ -21,13 +21,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class FornecedorServicoImpl implements FornecedorServico{
     private final Fabrica fabrica = Fabrica.make(FORNECEDOR);
+    @Autowired
     private  FornecedorRepositorio fornecedorRepositorio;
     
     @Override
     public List<Fornecedor> listAll() {
-        List<Fornecedor> fornecedors = new ArrayList<>();
-        fornecedorRepositorio.findAll().forEach(fornecedors::add); //fun with Java 8
-        return fornecedors;
+        List<Fornecedor> fornecedores = new ArrayList<>();
+        fornecedorRepositorio.findAll().forEach(fornecedores::add); //fun with Java 8
+        return fornecedores;
     }
 
     @Override
@@ -68,12 +69,6 @@ public class FornecedorServicoImpl implements FornecedorServico{
         return fabrica.criaFornecedor();
     }
 
-
-    
-    @Autowired
-    public void setRepositorio(FornecedorRepositorio repositorio) {
-        this.fornecedorRepositorio = repositorio;
-    }
 
     @Override
     public List<Fornecedor> findAllByNome(String nome) {

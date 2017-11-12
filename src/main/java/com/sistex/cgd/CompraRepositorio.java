@@ -17,29 +17,21 @@ import org.springframework.data.repository.query.Param;
  * @author jean
  */
 public interface CompraRepositorio extends CrudRepository<Compra, Long>{
+    @Query("SELECT co FROM Compra co WHERE co.cnpj like %:cnpj%")
+    List<Compra> findAllByCnpj(@Param("cnpj") String cnpj);
+    
     @Modifying
-    @Query("update Compra gerente set gerente.rg = :rg, "
-            + "gerente.email = :email,"
-            + "gerente.endereco = :endereco,"
-            + "gerente.nome = :nome,"
-            + "gerente.telefone = :telefone,"
-            + "gerente.cargo = :cargo"
-            + " where gerente.id = :id")
-    void update(@Param("rg") String rg,
-            @Param("email") String email,
-            @Param("endereco") String endereco,
-            @Param("nome") String nome,
-            @Param("telefone") String telefone,
-            @Param("cargo") String cargo,
+    @Query("UPDATE Compra co SET co.cnpj = :cnpj, "
+            + "co.nomeproduto = :nomeproduto, "
+            + "co.quantidade = :quantidade, "
+            + "co.marcaproduto = :marcaproduto, "
+            + "co.custounidade = :custounidade"
+            + " WHERE co.id = :id")
+    void update(@Param("cnpj") String cnpj,
+            @Param("nomeproduto") String nomeproduto,
+            @Param("quantidade") Integer quantidade,
+            @Param("marcaproduto") String marcaProduto,
+            @Param("custounidade") Float custoUnidade,
             @Param("id") Long id);
     
-    @Query("SELECT CASE WHEN COUNT(gerente) > 0 THEN true ELSE false END FROM Compra gerente WHERE gerente.rg = :rg")
-    boolean exist(@Param("rg") String rg);
-    
-  
-    @Query("SELECT gerente FROM Compra gerente WHERE gerente.rg= :rg")
-    Compra findByRg(@Param("rg") String rg);
-    
-    @Query("SELECT gerente FROM Compra gerente WHERE gerente.nome like %:nome%")
-    List<Compra> findAllByNome(@Param("nome") String nome);
 }

@@ -16,59 +16,61 @@ import javax.persistence.Id;
  */
 @Entity
 public class Compra {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idcompra=1L;
-    private String nomeProduto;
-    private String marca;
-    private Integer qtcompras=0;
-    private String cnpjFornecedor;
-    private float total_compra=0;
+    private Long idcompra;
+    private String nomeproduto;
+    private String marcaproduto;
+    private String cnpj;
+    private Integer quantidade;
+    private Float custounidade;
+
     public Long getIdcompra() {
         return idcompra;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
     }
 
     public void setIdcompra(Long idcompra) {
         this.idcompra = idcompra;
     }
 
-    public String getNomeProduto() {
-        return nomeProduto;
+    public String getNomeproduto() {
+        return nomeproduto;
     }
 
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
+    public void setNomeproduto(String nomeproduto) {
+        this.nomeproduto = nomeproduto;
     }
 
-    public String getMarca() {
-        return marca;
+    public String getMarcaproduto() {
+        return marcaproduto;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setMarcaproduto(String marcaproduto) {
+        this.marcaproduto = marcaproduto;
     }
 
-    public Integer getQtcompras() {
-        return qtcompras;
+    public String getCnpj() {
+        return cnpj;
     }
 
-    public void setQtcompras(Integer qtcompras) {
-        this.qtcompras = qtcompras;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
-    public String getCnpjFornecedor() {
-        return cnpjFornecedor;
+    public Float getCustounidade() {
+        return custounidade;
     }
 
-    public void setCnpjFornecedor(String cnpjFornecedor) {
-        this.cnpjFornecedor = cnpjFornecedor;
-    }
-
-    public float getTotal_compra() {
-        return total_compra;
-    }
-
-    public void setTotal_compra(float total_compra) {
-        this.total_compra = total_compra;
+    public void setCustounidade(Float custounidade) {
+        this.custounidade = custounidade;
     }
 }

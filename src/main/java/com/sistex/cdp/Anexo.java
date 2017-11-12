@@ -5,10 +5,13 @@
  */
 package com.sistex.cdp;
 
+import jdk.nashorn.internal.ir.annotations.Ignore;
+
 /**
  *
  * @author jean
  */
+@Ignore
 public class Anexo {
     private String nomeArquivo;
     private String caminho;

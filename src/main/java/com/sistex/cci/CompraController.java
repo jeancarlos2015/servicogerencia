@@ -5,8 +5,8 @@
  */
 package com.sistex.cci;
 
-import com.sistex.cdp.Fornecedor;
-import com.sistex.cgt.FornecedorServico;
+import com.sistex.cdp.Compra;
+import com.sistex.cgt.CompraServico;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,48 +23,47 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * @author jean
  */
 @Controller
-@RequestMapping("/fornecedor")
-public class FornecedorController {
+@RequestMapping("/compra")
+public class CompraController {
     @Autowired
-    private FornecedorServico fornecedorService;
-
-
+    private CompraServico compraServico;
+    
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void excluir(@PathVariable("id") Long id) {
-        fornecedorService.delete(id);
+        compraServico.delete(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Fornecedor cadastrar(@RequestBody Fornecedor fornecedor) {
-        return fornecedorService.save(fornecedor);
+    public Compra cadastrar(@RequestBody Compra compra) {
+        return compraServico.save(compra);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Fornecedor alterar(@PathVariable("id") Long id, @RequestBody Fornecedor fornecedor) {
-        fornecedor.setIdfornecedor(id);
-        return fornecedorService.update(fornecedor);
+    public Compra alterar(@PathVariable("id") Long id, @RequestBody Compra compra) {
+        compra.setIdcompra(id);
+        return compraServico.update(compra);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Fornecedor buscarFornecedor(@PathVariable("id") String id) {
-        return fornecedorService.getById(Long.valueOf(id));
+    public Compra buscarCompra(@PathVariable("id") String id) {
+        return compraServico.getById(Long.valueOf(id));
     }
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public List<Fornecedor> listFornecedors() {
-        return fornecedorService.listAll();
+    public List<Compra> listCompras() {
+        return compraServico.listAll();
     }
     
     @RequestMapping(value = "/{nome}", method = RequestMethod.POST)
     @ResponseBody
-    public List<Fornecedor> listFornecedoresNome(@PathVariable("nome") String nome) {
-        return fornecedorService.findAllByNome(nome);
+    public List<Compra> listCompraesNome(@PathVariable("nome") String nome) {
+        return compraServico.findAllByCnpj(nome);
     }
 }

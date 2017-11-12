@@ -5,15 +5,16 @@
  */
 package com.sistex.cdp;
 
-import com.sistex.cdp.Notificacao;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 
 /**
  *
  * @author jean
  */
+@Ignore
 public class EmailObj {
-    private String host;
-    private String port;
+    private String host="smtp.gmail.com";
+    private String port="587";
     private String assunto;
     private String texto;
     private String destinatario;

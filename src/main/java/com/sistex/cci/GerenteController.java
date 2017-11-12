@@ -25,14 +25,10 @@ import com.sistex.cgt.GerenteServico;
 @Controller
 @RequestMapping("/gerente")
 public class GerenteController {
+    @Autowired
     private GerenteServico gerenteService;
 
    
-    @Autowired
-    public void setGerenteService(GerenteServico gerenteService) {
-        this.gerenteService = gerenteService;
-    }
-
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void excluir(@PathVariable("id") Long id) {
