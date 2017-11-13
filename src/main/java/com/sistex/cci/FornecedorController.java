@@ -62,7 +62,7 @@ public class FornecedorController {
         return fornecedorService.listAll();
     }
     
-    @RequestMapping(value = "/{nome}", method = RequestMethod.POST)
+    @RequestMapping(value = "/{nome}", method = RequestMethod.GET)
     @ResponseBody
     public List<Fornecedor> listFornecedoresNome(@PathVariable("nome") String nome) {
         return fornecedorService.findAllByNome(nome);

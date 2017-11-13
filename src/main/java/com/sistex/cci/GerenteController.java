@@ -62,7 +62,7 @@ public class GerenteController {
         return gerenteService.listAll();
     }
     
-    @RequestMapping(value = "/{nome}", method = RequestMethod.POST)
+    @RequestMapping(value = "/{nome}", method = RequestMethod.GET)
     @ResponseBody
     public List<Gerente> listGerentesNome(@PathVariable("nome") String nome) {
         return gerenteService.findAllByNome(nome);

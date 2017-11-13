@@ -61,7 +61,7 @@ public class CompraController {
         return compraServico.listAll();
     }
     
-    @RequestMapping(value = "/{nome}", method = RequestMethod.POST)
+    @RequestMapping(value = "/{nome}", method = RequestMethod.GET)
     @ResponseBody
     public List<Compra> listCompraesNome(@PathVariable("nome") String nome) {
         return compraServico.findAllByCnpj(nome);

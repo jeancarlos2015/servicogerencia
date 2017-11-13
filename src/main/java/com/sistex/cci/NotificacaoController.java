@@ -52,7 +52,7 @@ public class NotificacaoController {
         return notificacaoService.listAll();
     }
     
-    @RequestMapping(value = "/{nome}", method = RequestMethod.POST)
+    @RequestMapping(value = "/{nome}", method = RequestMethod.GET)
     @ResponseBody
     public List<Notificacao> listNotificacaoesNome(@PathVariable("nome") String email) {
         return notificacaoService.findAllByEmail(email);
