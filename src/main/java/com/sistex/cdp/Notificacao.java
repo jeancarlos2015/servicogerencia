@@ -16,6 +16,7 @@ import javax.persistence.Id;
  */
 @Entity
 public class Notificacao {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idnotificacao;
@@ -23,6 +24,7 @@ public class Notificacao {
     private String nomeCliente;
     private String descricao;
     private String email;
+
     public Long getIdnotificacao() {
         return idnotificacao;
     }
@@ -61,5 +63,12 @@ public class Notificacao {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isEmpty() {
+        return datastr.equals("")
+                || nomeCliente.equals("")
+                || descricao.equals("")
+                || email.equals("");
     }
 }

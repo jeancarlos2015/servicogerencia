@@ -45,4 +45,16 @@ public class Gerente extends Pessoa{
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
+
+    @Override
+    public boolean isEmpty() {
+        return nome.equals("") || 
+                telefone.equals("") ||
+                email.equals("") ||
+                endereco.equals("") ||
+                rg.equals("") ||
+                cargo.equals("");
+    }
+    
+    
 }

@@ -8,6 +8,8 @@ package com.sistex.cgt;
 import com.sistex.cdp.EmailObj;
 import com.sistex.cdp.Notificacao;
 import com.sistex.cgd.NotificacaoRepositorio;
+import com.sistex.util.Fabrica;
+import static com.sistex.util.Tipo.NOTIFICACAO;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,7 @@ import org.springframework.stereotype.Service;
 public class NotificacaoServicoImpl implements NotificacaoServico{
     @Autowired
     private NotificacaoRepositorio notificacaoRepositorio;
-    
+    private final Fabrica fabrica = Fabrica.make(NOTIFICACAO);
     private NotificacaoChain notificacaoChain;
     
     @Override
@@ -45,9 +47,11 @@ public class NotificacaoServicoImpl implements NotificacaoServico{
     }
 
     @Override
-    public Notificacao save(EmailObj emailObj) {
-        notificacaoChain.setEmail(emailObj);
-        return notificacaoRepositorio.save(emailObj.getNotificao());
+    public Notificacao save(Notificacao notificacao) {
+        if(!notificacao.isEmpty()){
+            return notificacaoRepositorio.save(notificacao);
+        }
+        return fabrica.criaNotificacao();
     }
 
     @Override

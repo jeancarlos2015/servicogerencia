@@ -20,7 +20,7 @@ public interface NotificacaoServico {
 
     void delete(Long id);
 
-    Notificacao save(EmailObj emailObj);
+    Notificacao save(Notificacao notificacao);
     
     List<Notificacao> findAllByEmail(String email);
 }

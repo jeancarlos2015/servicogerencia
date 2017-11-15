@@ -49,4 +49,10 @@ public class Anexo {
         this.email = email;
     }
     
+    public boolean isEmpty(){
+        return email==null ||
+                descricao.equals("") ||
+                caminho.equals("") ||
+                nomeArquivo.equals("");
+    }
 }

@@ -44,7 +44,7 @@ public class GerenteServicoImpl implements GerenteServico {
 
     @Override
     public Gerente save(Gerente gerente) {
-        if (!gerenteRepositorio.exist(gerente.getRg())) {
+        if (!gerenteRepositorio.exist(gerente.getRg()) && !gerente.isEmpty()) {
             return gerenteRepositorio.save(gerente);
         }
         return fabrica.criaGerente();
@@ -59,7 +59,7 @@ public class GerenteServicoImpl implements GerenteServico {
 
     @Override
     public Gerente update(Gerente gerente) {
-        if (gerenteRepositorio.exist(gerente.getRg())) {
+        if (gerenteRepositorio.exist(gerente.getRg()) && !gerente.isEmpty()) {
             gerenteRepositorio.update(gerente.getRg(),
                     gerente.getEmail(),
                     gerente.getEndereco(),

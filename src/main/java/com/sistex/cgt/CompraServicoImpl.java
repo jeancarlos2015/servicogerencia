@@ -7,6 +7,8 @@ package com.sistex.cgt;
 
 import com.sistex.cdp.Compra;
 import com.sistex.cgd.CompraRepositorio;
+import com.sistex.util.Fabrica;
+import static com.sistex.util.Tipo.COMPRA;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +19,12 @@ import org.springframework.stereotype.Service;
  * @author jean
  */
 @Service
-public class CompraServicoImpl implements CompraServico{
+public class CompraServicoImpl implements CompraServico {
+
     @Autowired
     private CompraRepositorio compraRepositorio;
+    
+    private Fabrica fabrica = Fabrica.make(COMPRA);
     @Override
     public List<Compra> listAll() {
         List<Compra> compras = new ArrayList<>();
@@ -34,30 +39,36 @@ public class CompraServicoImpl implements CompraServico{
 
     @Override
     public Compra update(Compra compra) {
-        compraRepositorio.update(compra.getCnpj(), 
-                                 compra.getNomeproduto(), 
-                                 compra.getQuantidade(), 
-                                 compra.getMarcaproduto(), 
-                                 compra.getCustounidade(),
-                                 compra.getIdcompra());
+        if (!compra.isEmpty()) {
+            compraRepositorio.update(compra.getCnpj(),
+                    compra.getNomeproduto(),
+                    compra.getQuantidade(),
+                    compra.getMarcaproduto(),
+                    compra.getCustounidade(),
+                    compra.getIdcompra());
+        }
+
         return compraRepositorio.findOne(compra.getIdcompra());
     }
 
     @Override
     public void delete(Long id) {
-        if(compraRepositorio.exists(id)){
-           compraRepositorio.delete(id);
+        if (compraRepositorio.exists(id)) {
+            compraRepositorio.delete(id);
         }
     }
 
     @Override
     public Compra save(Compra compra) {
-        return compraRepositorio.save(compra);
+        if (!compra.isEmpty()) {
+            return compraRepositorio.save(compra);
+        }
+        return fabrica.criaCompra();
     }
 
     @Override
     public List<Compra> findAllByCnpj(String cnpj) {
         return compraRepositorio.findAllByCnpj(cnpj);
     }
-    
+
 }

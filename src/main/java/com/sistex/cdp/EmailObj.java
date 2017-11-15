@@ -22,6 +22,8 @@ public class EmailObj {
     private Notificacao notificao;
     private String nomeRemetente;
     private String nomeDestinatario;
+    
+    
     public String getHost() {
         return host;
     }
@@ -92,5 +94,17 @@ public class EmailObj {
 
     public void setNomeDestinatario(String nomeDestinatario) {
         this.nomeDestinatario = nomeDestinatario;
+    }
+    
+    public boolean isEmpty(){
+        return nomeDestinatario.equals("") ||
+                nomeRemetente.equals("") ||
+                notificao==null ||
+                texto.equals("") ||
+                assunto.equals("") ||
+                port.equals("") ||
+                host.equals("")||
+                destinatario.equals("")||
+                remetente.equals("");
     }
 }

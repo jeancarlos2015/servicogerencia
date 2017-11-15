@@ -16,10 +16,10 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Pessoa {
-    private String nome;
-    private String telefone;
-    private String email;
-    private String endereco;
+    protected String nome;
+    protected String telefone;
+    protected String email;
+    protected String endereco;
 
     public String getNome() {
         return nome;
@@ -52,4 +52,6 @@ public abstract class Pessoa {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
+    
+    public abstract boolean isEmpty();
 }

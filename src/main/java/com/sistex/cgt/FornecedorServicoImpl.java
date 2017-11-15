@@ -43,7 +43,7 @@ public class FornecedorServicoImpl implements FornecedorServico{
 
     @Override
     public Fornecedor save(Fornecedor fornecedor) {
-        if(!fornecedorRepositorio.exist(fornecedor.getCnpj())){
+        if(!fornecedorRepositorio.exist(fornecedor.getCnpj()) && !fornecedor.isEmpty()){
             return fornecedorRepositorio.save(fornecedor);
         }
         return fabrica.criaFornecedor();
@@ -58,7 +58,7 @@ public class FornecedorServicoImpl implements FornecedorServico{
 
     @Override
     public Fornecedor update(Fornecedor fornecedor) {
-        if(fornecedorRepositorio.exist(fornecedor.getCnpj())){
+        if(fornecedorRepositorio.exist(fornecedor.getCnpj()) && !fornecedor.isEmpty()){
             fornecedorRepositorio.update(fornecedor.getCnpj(),
                                 fornecedor.getEmail(),
                                 fornecedor.getEndereco(), 

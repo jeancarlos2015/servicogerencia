@@ -40,6 +40,14 @@ public class Fornecedor extends Pessoa{
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
-
+    
+    @Override
+    public boolean isEmpty(){
+        return nome.equals("") || 
+                telefone.equals("") ||
+                email.equals("") ||
+                endereco.equals("") ||
+                cnpj.equals("");
+    }
 
 }

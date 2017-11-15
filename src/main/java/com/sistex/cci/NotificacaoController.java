@@ -36,8 +36,8 @@ public class NotificacaoController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Notificacao cadastrar(@RequestBody EmailObj emailObj) {
-        return notificacaoService.save(emailObj);
+    public Notificacao cadastrar(@RequestBody Notificacao notificacao) {
+        return notificacaoService.save(notificacao);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
