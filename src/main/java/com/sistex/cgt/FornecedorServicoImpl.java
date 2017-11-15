@@ -74,5 +74,15 @@ public class FornecedorServicoImpl implements FornecedorServico{
     public List<Fornecedor> findAllByNome(String nome) {
         return fornecedorRepositorio.findAllByNome(nome);
     }
+
+    @Override
+    public Boolean exist(String cnpj) {
+        return fornecedorRepositorio.exist(cnpj);
+    }
+    
+    @Override
+    public Boolean exist(Long id){
+        return fornecedorRepositorio.exists(id);
+    }
     
 }

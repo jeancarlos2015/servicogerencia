@@ -27,4 +27,6 @@ public interface GerenteServico {
     Gerente save(Gerente gerente);
     
     List<Gerente> findAllByNome(String nome);
+    
+    Boolean exist(Long id);
 }

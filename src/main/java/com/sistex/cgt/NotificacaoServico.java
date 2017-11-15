@@ -23,4 +23,5 @@ public interface NotificacaoServico {
     Notificacao save(Notificacao notificacao);
     
     List<Notificacao> findAllByEmail(String email);
+    Boolean exist(Long id);
 }

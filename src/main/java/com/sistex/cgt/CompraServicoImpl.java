@@ -71,4 +71,9 @@ public class CompraServicoImpl implements CompraServico {
         return compraRepositorio.findAllByCnpj(cnpj);
     }
 
+    @Override
+    public boolean exist(Long id) {
+        return compraRepositorio.exists(id);
+    }
+
 }

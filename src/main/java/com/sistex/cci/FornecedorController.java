@@ -31,15 +31,17 @@ public class FornecedorController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void excluir(@PathVariable("id") Long id) {
+    public Boolean excluir(@PathVariable("id") Long id) {
         fornecedorService.delete(id);
+        return !fornecedorService.exist(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Fornecedor cadastrar(@RequestBody Fornecedor fornecedor) {
-        return fornecedorService.save(fornecedor);
+    public Boolean cadastrar(@RequestBody Fornecedor fornecedor) {
+        Fornecedor novo = fornecedorService.save(fornecedor);
+        return fornecedorService.exist(novo.getIdfornecedor());
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)

@@ -24,4 +24,6 @@ public interface CompraServico {
     Compra save(Compra compra);
     
     List<Compra> findAllByCnpj(String nome);
+    
+    boolean exist(Long id);
 }

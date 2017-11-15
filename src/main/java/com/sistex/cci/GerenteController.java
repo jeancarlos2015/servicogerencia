@@ -31,15 +31,17 @@ public class GerenteController {
    
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void excluir(@PathVariable("id") Long id) {
+    public Boolean excluir(@PathVariable("id") Long id) {
         gerenteService.delete(id);
+        return !gerenteService.exist(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Gerente cadastrar(@RequestBody Gerente gerente) {
-        return gerenteService.save(gerente);
+    public Boolean cadastrar(@RequestBody Gerente gerente) {
+        Gerente novo = gerenteService.save(gerente);
+        return gerenteService.exist(novo.getIdgerente());
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)

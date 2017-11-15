@@ -76,4 +76,9 @@ public class GerenteServicoImpl implements GerenteServico {
         return gerenteRepositorio.findAllByNome(nome);
     }
 
+    @Override
+    public Boolean exist(Long id) {
+        return gerenteRepositorio.exists(id);
+    }
+
 }

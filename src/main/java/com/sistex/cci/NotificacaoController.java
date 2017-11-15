@@ -29,15 +29,17 @@ public class NotificacaoController {
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void excluir(@PathVariable("id") Long id) {
+    public Boolean excluir(@PathVariable("id") Long id) {
         notificacaoService.delete(id);
+        return !notificacaoService.exist(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Notificacao cadastrar(@RequestBody Notificacao notificacao) {
-        return notificacaoService.save(notificacao);
+    public Boolean cadastrar(@RequestBody Notificacao notificacao) {
+        Notificacao novo = notificacaoService.save(notificacao);
+        return notificacaoService.exist(novo.getIdnotificacao());
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

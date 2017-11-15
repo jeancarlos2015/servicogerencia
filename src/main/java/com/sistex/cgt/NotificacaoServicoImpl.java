@@ -60,5 +60,10 @@ public class NotificacaoServicoImpl implements NotificacaoServico{
         notificacaoRepositorio.findAllByEmail(email);
         return notificacoes;
     }
+
+    @Override
+    public Boolean exist(Long id) {
+        return notificacaoRepositorio.exists(id);
+    }
     
 }

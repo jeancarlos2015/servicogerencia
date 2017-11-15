@@ -26,4 +26,8 @@ public interface FornecedorServico {
     Fornecedor update(Fornecedor fornecedor);
     
     List<Fornecedor> findAllByNome(String nome);
+    
+    Boolean exist(String cnpj);
+    
+    Boolean exist(Long id);
 }

@@ -30,15 +30,17 @@ public class CompraController {
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void excluir(@PathVariable("id") Long id) {
+    public Boolean excluir(@PathVariable("id") Long id) {
         compraServico.delete(id);
+        return !compraServico.exist(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Compra cadastrar(@RequestBody Compra compra) {
-        return compraServico.save(compra);
+    public Boolean cadastrar(@RequestBody Compra compra) {
+        Compra novo = compraServico.save(compra);
+        return compraServico.exist(novo.getIdcompra());
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
