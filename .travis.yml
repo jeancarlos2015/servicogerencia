@@ -14,12 +14,12 @@ addons:
   sonarcloud:
     organization: "gerentefornecedor"
     token:
-      secure: "$SONAR_KEY_GERENTE"
+      secure: "$SONAR_KEY"
 script:
   #- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
   - sonar-scanner
 deploy:
  provider: heroku
  api-key:
-  secure: $HEROKU_SONAR
+  secure: $HEROKU_KEY
  app: servicogerentefornecedor
