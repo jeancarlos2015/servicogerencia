@@ -60,13 +60,7 @@ public class GerenteServicoImpl implements GerenteServico {
     @Override
     public Gerente update(Gerente gerente) {
         if (gerenteRepositorio.exist(gerente.getRg()) && !gerente.isEmpty()) {
-            gerenteRepositorio.update(gerente.getRg(),
-                    gerente.getEmail(),
-                    gerente.getEndereco(),
-                    gerente.getNome(),
-                    gerente.getTelefone(),
-                    gerente.getCargo(),
-                    gerente.getIdgerente());
+            return gerenteRepositorio.save(gerente);
         }
         return fabrica.criaGerente();
     }

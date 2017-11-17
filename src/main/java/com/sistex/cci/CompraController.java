@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +31,7 @@ public class CompraController {
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
+    @CrossOrigin
     public Boolean excluir(@PathVariable("id") Long id) {
         compraServico.delete(id);
         return !compraServico.exist(id);
@@ -43,11 +45,11 @@ public class CompraController {
         return compraServico.exist(novo.getIdcompra());
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Compra alterar(@PathVariable("id") Long id, @RequestBody Compra compra) {
-        compra.setIdcompra(id);
+    @CrossOrigin
+    public Compra alterar(@RequestBody Compra compra) {
         return compraServico.update(compra);
     }
 

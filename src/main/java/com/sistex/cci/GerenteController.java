@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import com.sistex.cgt.GerenteServico;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 /**
  *
@@ -31,6 +32,7 @@ public class GerenteController {
    
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
+    @CrossOrigin
     public Boolean excluir(@PathVariable("id") Long id) {
         gerenteService.delete(id);
         return !gerenteService.exist(id);
@@ -44,11 +46,11 @@ public class GerenteController {
         return gerenteService.exist(novo.getIdgerente());
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Gerente alterar(@PathVariable("id") Long id, @RequestBody Gerente gerente) {
-        gerente.setIdgerente(id);
+    @CrossOrigin
+    public Gerente alterar(@RequestBody Gerente gerente) {
         return gerenteService.update(gerente);
     }
 

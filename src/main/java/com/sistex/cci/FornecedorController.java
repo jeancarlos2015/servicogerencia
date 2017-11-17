@@ -11,6 +11,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,7 @@ public class FornecedorController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
+    @CrossOrigin
     public Boolean excluir(@PathVariable("id") Long id) {
         fornecedorService.delete(id);
         return !fornecedorService.exist(id);
@@ -44,11 +46,11 @@ public class FornecedorController {
         return fornecedorService.exist(novo.getIdfornecedor());
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public Fornecedor alterar(@PathVariable("id") Long id, @RequestBody Fornecedor fornecedor) {
-        fornecedor.setIdfornecedor(id);
+    @CrossOrigin
+    public Fornecedor alterar(@RequestBody Fornecedor fornecedor) {
         return fornecedorService.update(fornecedor);
     }
 

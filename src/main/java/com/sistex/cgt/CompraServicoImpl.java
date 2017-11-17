@@ -39,16 +39,10 @@ public class CompraServicoImpl implements CompraServico {
 
     @Override
     public Compra update(Compra compra) {
-        if (!compra.isEmpty()) {
-            compraRepositorio.update(compra.getCnpj(),
-                    compra.getNomeproduto(),
-                    compra.getQuantidade(),
-                    compra.getMarcaproduto(),
-                    compra.getCustounidade(),
-                    compra.getIdcompra());
+        if (exist(compra.getIdcompra())) {
+            return compraRepositorio.save(compra);
         }
-
-        return compraRepositorio.findOne(compra.getIdcompra());
+        return fabrica.criaCompra();
     }
 
     @Override

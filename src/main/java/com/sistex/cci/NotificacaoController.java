@@ -11,6 +11,7 @@ import com.sistex.cgt.NotificacaoServico;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,7 @@ public class NotificacaoController {
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
+    @CrossOrigin
     public Boolean excluir(@PathVariable("id") Long id) {
         notificacaoService.delete(id);
         return !notificacaoService.exist(id);
