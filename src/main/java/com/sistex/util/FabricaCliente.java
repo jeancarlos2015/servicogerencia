@@ -5,18 +5,17 @@
  */
 package com.sistex.util;
 
+import com.sistex.cdp.Cliente;
+
 /**
  *
  * @author jean
  */
-public enum Tipo {
-    NOTIFICACAO,
-    GERENTE,
-    EMAIL,
-    DB,
-    COMPRA,
-    FORNECEDOR,
-    CLIENTE,
-    FUNCIONARIO
-    
+class FabricaCliente extends Fabrica {
+
+    @Override
+    public Cliente criaCliente() {
+        return new Cliente();
+    }
+
 }

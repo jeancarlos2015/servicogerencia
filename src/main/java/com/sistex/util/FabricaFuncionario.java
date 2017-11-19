@@ -5,18 +5,16 @@
  */
 package com.sistex.util;
 
+import com.sistex.cdp.Funcionario;
+
 /**
  *
  * @author jean
  */
-public enum Tipo {
-    NOTIFICACAO,
-    GERENTE,
-    EMAIL,
-    DB,
-    COMPRA,
-    FORNECEDOR,
-    CLIENTE,
-    FUNCIONARIO
-    
+public class FabricaFuncionario extends Fabrica {
+
+    @Override
+    public Funcionario criaFuncionario() {
+        return new Funcionario();
+    }
 }
