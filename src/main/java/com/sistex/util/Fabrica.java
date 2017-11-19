@@ -7,7 +7,6 @@ package com.sistex.util;
 
 
 
-import com.sistex.cdp.Cliente;
 import com.sistex.cdp.Compra;
 import com.sistex.cdp.EmailObj;
 import com.sistex.cdp.Fornecedor;
@@ -32,8 +31,6 @@ public class Fabrica {
                 return new FabricaFornecedor();
             case EMAIL:
                 return new FabricaEmail();
-            case CLIENTE:
-                return new FabricaCliente();
             case FUNCIONARIO:
                 return new FabricaFuncionario();
                 
@@ -49,9 +46,7 @@ public class Fabrica {
         return null;
     }
     
-    public Cliente criaCliente(){
-        return null;
-    }
+ 
     public Funcionario criaFuncionario(){
         return null;
     }
