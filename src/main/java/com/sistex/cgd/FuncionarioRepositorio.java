@@ -18,22 +18,6 @@ import org.springframework.data.repository.query.Param;
  */
 public interface FuncionarioRepositorio extends CrudRepository<Funcionario, Long> {
 
-//    @Modifying
-//    @Query("update Funcionario fun set fun.rg = :rg, "
-//            + "fun.email = :email,"
-//            + "fun.endereco = :endereco,"
-//            + "fun.nome = :nome,"
-//            + "fun.telefone = :telefone,"
-//            + "fun.cargo = :cargo"
-//            + " where fun.id = :id")
-//    void update(@Param("rg") String rg,
-//            @Param("email") String email,
-//            @Param("endereco") String endereco,
-//            @Param("nome") String nome,
-//            @Param("telefone") String telefone,
-//            @Param("cargo") String cargo,
-//            @Param("id") Long id);
-
     @Query("SELECT CASE WHEN COUNT(fun) > 0 THEN true ELSE false END FROM Funcionario fun WHERE fun.rg = :rg")
     boolean exist(@Param("rg") String rg);
 

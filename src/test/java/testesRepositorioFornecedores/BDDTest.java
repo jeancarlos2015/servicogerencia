@@ -1,11 +1,11 @@
-package testesControllerUsuarios;
+package testesRepositorioFornecedores;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/main/resources/featuresControllerUsuarios")
+@CucumberOptions(features = "src/main/resources/featuresRepositorioFornecedores")
 public class BDDTest {
 
 }
