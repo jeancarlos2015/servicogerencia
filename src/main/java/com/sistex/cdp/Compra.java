@@ -73,15 +73,13 @@ public class Compra {
     public void setCustounidade(Float custounidade) {
         this.custounidade = custounidade;
     }
-    
-    public boolean isEmpty(){
-        return cnpj.equals("")||
-                custounidade == null ||
-                nomeproduto.equals("")||
-                marcaproduto.equals("")||
-                cnpj.equals("")||
-                quantidade==null||
-                custounidade==null;
-        
+
+    public boolean isEmpty() {
+        return nomeproduto == null
+                || marcaproduto == null
+                || cnpj == null
+                || quantidade == null
+                || custounidade == null;
+
     }
 }
