@@ -1,15 +1,10 @@
 package com.sistex.cgd;
-
 import com.sistex.cdp.Gerente;
 import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-/**
- *
- * @author jean
- */
 public interface GerenteRepositorio extends CrudRepository<Gerente, Long> {
 
     @Query("SELECT CASE WHEN COUNT(gerente) > 0 THEN true ELSE false END FROM Gerente gerente WHERE gerente.rg = :rg")

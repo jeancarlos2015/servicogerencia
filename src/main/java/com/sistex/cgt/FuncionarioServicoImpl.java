@@ -1,5 +1,4 @@
 package com.sistex.cgt;
-
 import com.sistex.cdp.Funcionario;
 import com.sistex.cgd.FuncionarioRepositorio;
 import com.sistex.util.Fabrica;

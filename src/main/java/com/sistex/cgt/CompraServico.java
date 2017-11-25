@@ -1,12 +1,7 @@
 package com.sistex.cgt;
-
 import com.sistex.cdp.Compra;
 import java.util.List;
 
-/**
- *
- * @author jean
- */
 public interface CompraServico {
 
     List<Compra> listAll();

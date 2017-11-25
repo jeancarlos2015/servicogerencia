@@ -1,5 +1,4 @@
 package com.sistex.cgt;
-
 import com.sistex.cdp.Compra;
 import com.sistex.cgd.CompraRepositorio;
 import com.sistex.util.Fabrica;
@@ -9,10 +8,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- *
- * @author jean
- */
 @Service
 public class CompraServicoImpl implements CompraServico {
 

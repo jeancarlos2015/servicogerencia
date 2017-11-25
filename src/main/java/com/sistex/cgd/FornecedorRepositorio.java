@@ -1,15 +1,10 @@
 package com.sistex.cgd;
-
 import com.sistex.cdp.Fornecedor;
 import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-/**
- *
- * @author jean
- */
 public interface FornecedorRepositorio extends CrudRepository<Fornecedor, Long> {
 
     @Query("SELECT CASE WHEN COUNT(fo) > 0 THEN true ELSE false END FROM Fornecedor fo WHERE fo.cnpj = :cnpj")

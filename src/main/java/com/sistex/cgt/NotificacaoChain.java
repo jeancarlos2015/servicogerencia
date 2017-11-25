@@ -1,5 +1,4 @@
 package com.sistex.cgt;
-
 import com.sistex.cdp.EmailObj;
 import com.sistex.util.Tipo;
 

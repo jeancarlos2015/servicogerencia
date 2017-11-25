@@ -1,5 +1,4 @@
 package com.sistex.cgt;
-
 import com.sistex.cdp.Notificacao;
 import java.util.List;
 

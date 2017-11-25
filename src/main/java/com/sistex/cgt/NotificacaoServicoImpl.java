@@ -1,5 +1,4 @@
 package com.sistex.cgt;
-
 import com.sistex.cdp.Notificacao;
 import com.sistex.cgd.NotificacaoRepositorio;
 import com.sistex.util.Fabrica;

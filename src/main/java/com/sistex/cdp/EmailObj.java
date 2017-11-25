@@ -1,7 +1,5 @@
 package com.sistex.cdp;
-
 import jdk.nashorn.internal.ir.annotations.Ignore;
-
 @Ignore
 public class EmailObj {
 

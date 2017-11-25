@@ -1,5 +1,4 @@
 package com.sistex.cgt;
-
 import com.sistex.cdp.Gerente;
 import com.sistex.util.Fabrica;
 import java.util.ArrayList;

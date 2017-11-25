@@ -1,5 +1,4 @@
 package com.sistex.cgt;
-
 import com.sistex.cgd.NotificacaoRepositorio;
 import static com.sistex.util.Tipo.DB;
 import org.springframework.beans.factory.annotation.Autowired;
