@@ -8,7 +8,7 @@ before_install:
 services:
     - postgresql
 before_script:
-    - psql -c 'CREATE DATABASE bancoSistex;' -U postgres;
+    - psql -c 'CREATE DATABASE testdb1;' -U postgres;
     - psql -c "ALTER USER postgres WITH PASSWORD 'ifes'" -d template1;
 addons:
   sonarcloud:
@@ -18,7 +18,6 @@ addons:
 script:
   #- mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.4.0.905:sonar
   #- sonar-scanner
-   - mvn clean verify sonar:sonar
    - mvn clean install
    - mvn sonar:sonar
 deploy:
