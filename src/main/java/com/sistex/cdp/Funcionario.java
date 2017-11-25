@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sistex.cdp;
 
 import javax.persistence.Entity;
@@ -10,19 +5,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-/**
- *
- * @author jean
- */
 @Entity
 public class Funcionario extends Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idfuncionario;
-    private String rg="";
-    private String cargo="";
-    
+    private String rg = "";
+    private String cargo = "";
 
     /**
      *
@@ -71,16 +61,16 @@ public class Funcionario extends Pessoa {
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
-    
+
     @Override
-    public boolean isEmpty(){
-        return nome.equals("") || 
-                telefone.equals("") ||
-                email.equals("") ||
-                endereco.equals("") ||
-                datanascimento.equals("") ||
-                rg.equals("") ||
-                cargo.equals("");
+    public boolean isEmpty() {
+        return nome.equals("")
+                || telefone.equals("")
+                || email.equals("")
+                || endereco.equals("")
+                || datanascimento.equals("")
+                || rg.equals("")
+                || cargo.equals("");
     }
 
 }

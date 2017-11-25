@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sistex.cgt;
 
 import com.sistex.cdp.Gerente;
@@ -14,10 +9,6 @@ import org.springframework.stereotype.Service;
 import com.sistex.cgd.GerenteRepositorio;
 import static com.sistex.util.Tipo.GERENTE;
 
-/**
- *
- * @author jean
- */
 @Service
 public class GerenteServicoImpl implements GerenteServico {
 

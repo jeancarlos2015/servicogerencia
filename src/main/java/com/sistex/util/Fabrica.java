@@ -5,8 +5,6 @@
  */
 package com.sistex.util;
 
-
-
 import com.sistex.cdp.Compra;
 import com.sistex.cdp.EmailObj;
 import com.sistex.cdp.Fornecedor;
@@ -14,13 +12,10 @@ import com.sistex.cdp.Funcionario;
 import com.sistex.cdp.Gerente;
 import com.sistex.cdp.Notificacao;
 
-/**
- *
- * @author jean
- */
 public class Fabrica {
-    public static Fabrica make(Tipo tipo){
-        switch(tipo){
+
+    public static Fabrica make(Tipo tipo) {
+        switch (tipo) {
             case GERENTE:
                 return new FabricaGerente();
             case NOTIFICACAO:
@@ -33,39 +28,35 @@ public class Fabrica {
                 return new FabricaEmail();
             case FUNCIONARIO:
                 return new FabricaFuncionario();
-                
+
             default:
                 return new Fabrica();
-                
+
         }
     }
-    
-   
-    
+
     public Gerente criaGerente() {
         return null;
     }
-    
- 
-    public Funcionario criaFuncionario(){
+
+    public Funcionario criaFuncionario() {
         return null;
     }
-      public Fornecedor criaFornecedor() {
+
+    public Fornecedor criaFornecedor() {
         return null;
     }
-    
-    public Compra criaCompra(){
+
+    public Compra criaCompra() {
         return null;
     }
-    
-   
-    
-    public Notificacao criaNotificacao(){
+
+    public Notificacao criaNotificacao() {
         return null;
     }
-    
-    public EmailObj criaEmail(){
+
+    public EmailObj criaEmail() {
         return null;
     }
-    
+
 }

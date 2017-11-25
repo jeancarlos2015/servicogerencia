@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sistex.cgt;
 
 import com.sistex.cdp.EmailObj;
@@ -19,15 +14,14 @@ import org.apache.commons.mail.HtmlEmail;
 import org.apache.commons.mail.MultiPartEmail;
 import org.apache.commons.mail.SimpleEmail;
 
-public class NotificacaoEmail extends NotificacaoChain{
-    
-    
+public class NotificacaoEmail extends NotificacaoChain {
+
     public NotificacaoEmail() {
         super(EMAIL);
     }
-    
+
     public void enviaEmailSimples(EmailObj emailobj) throws EmailException {
-        
+
         SimpleEmail email1 = new SimpleEmail();
         email1.setHostName(emailobj.getHost());
         email1.addTo(emailobj.getDestinatario(), emailobj.getAssunto()); //destinatário
@@ -77,19 +71,19 @@ public class NotificacaoEmail extends NotificacaoChain{
         email1.send();
 
     }
-    public boolean podeEnviarNotificacaoDB(Tipo id){
-        return id==EMAIL;
+
+    public boolean podeEnviarNotificacaoDB(Tipo id) {
+        return id == EMAIL;
     }
+
     @Override
     public void enviar() {
-        
+
         try {
             enviaEmailHtml(email);
         } catch (EmailException | MalformedURLException ex) {
             Logger.getLogger(NotificacaoEmail.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-   
 
 }

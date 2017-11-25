@@ -1,20 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sistex.cdp;
 
 import jdk.nashorn.internal.ir.annotations.Ignore;
 
-/**
- *
- * @author jean
- */
 @Ignore
 public class EmailObj {
-    private String host="smtp.gmail.com";
-    private String port="587";
+
+    private String host = "smtp.gmail.com";
+    private String port = "587";
     private String assunto;
     private String texto;
     private String destinatario;
@@ -22,8 +14,7 @@ public class EmailObj {
     private Notificacao notificao;
     private String nomeRemetente;
     private String nomeDestinatario;
-    
-    
+
     public String getHost() {
         return host;
     }
@@ -95,16 +86,16 @@ public class EmailObj {
     public void setNomeDestinatario(String nomeDestinatario) {
         this.nomeDestinatario = nomeDestinatario;
     }
-    
-    public boolean isEmpty(){
-        return nomeDestinatario.equals("") ||
-                nomeRemetente.equals("") ||
-                notificao==null ||
-                texto.equals("") ||
-                assunto.equals("") ||
-                port.equals("") ||
-                host.equals("")||
-                destinatario.equals("")||
-                remetente.equals("");
+
+    public boolean isEmpty() {
+        return nomeDestinatario.equals("")
+                || nomeRemetente.equals("")
+                || notificao == null
+                || texto.equals("")
+                || assunto.equals("")
+                || port.equals("")
+                || host.equals("")
+                || destinatario.equals("")
+                || remetente.equals("");
     }
 }

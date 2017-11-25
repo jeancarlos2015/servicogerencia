@@ -1,22 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sistex.cdp;
 
 import jdk.nashorn.internal.ir.annotations.Ignore;
 
-/**
- *
- * @author jean
- */
 @Ignore
 public class Anexo {
+
     private String nomeArquivo;
     private String caminho;
     private String descricao;
     private EmailObj email;
+
     public String getNomeArquivo() {
         return nomeArquivo;
     }
@@ -48,11 +41,11 @@ public class Anexo {
     public void setEmail(EmailObj email) {
         this.email = email;
     }
-    
-    public boolean isEmpty(){
-        return email==null ||
-                descricao.equals("") ||
-                caminho.equals("") ||
-                nomeArquivo.equals("");
+
+    public boolean isEmpty() {
+        return email == null
+                || descricao.equals("")
+                || caminho.equals("")
+                || nomeArquivo.equals("");
     }
 }

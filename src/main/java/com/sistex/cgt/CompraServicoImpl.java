@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sistex.cgt;
 
 import com.sistex.cdp.Compra;
@@ -23,8 +18,9 @@ public class CompraServicoImpl implements CompraServico {
 
     @Autowired
     private CompraRepositorio compraRepositorio;
-    
+
     private Fabrica fabrica = Fabrica.make(COMPRA);
+
     @Override
     public List<Compra> listAll() {
         List<Compra> compras = new ArrayList<>();
