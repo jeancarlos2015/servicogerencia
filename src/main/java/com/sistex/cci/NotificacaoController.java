@@ -5,7 +5,6 @@
  */
 package com.sistex.cci;
 
-import com.sistex.cdp.EmailObj;
 import com.sistex.cdp.Notificacao;
 import com.sistex.cgt.NotificacaoServico;
 import java.util.List;
