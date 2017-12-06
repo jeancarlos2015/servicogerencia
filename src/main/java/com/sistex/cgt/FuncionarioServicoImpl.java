@@ -3,6 +3,7 @@ import com.sistex.cdp.Funcionario;
 import com.sistex.cgd.FuncionarioRepositorio;
 import com.sistex.util.Fabrica;
 import static com.sistex.util.Tipo.FORNECEDOR;
+import static com.sistex.util.Tipo.FUNCIONARIO;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class FuncionarioServicoImpl implements FuncionarioServico {
 
-    private final Fabrica fabrica = Fabrica.make(FORNECEDOR);
+    private final Fabrica fabrica = Fabrica.make(FUNCIONARIO);
     @Autowired
     private FuncionarioRepositorio funcionarioRepositorio;
 
