@@ -43,7 +43,7 @@ public class FornecedorController {
     @ResponseBody
     public Boolean cadastrar(@RequestBody Fornecedor fornecedor) {
         Fornecedor novo = fornecedorService.save(fornecedor);
-        return fornecedorService.exist(novo.getIdfornecedor());
+        return !novo.isEmpty();
     }
 
     @RequestMapping(method = RequestMethod.PUT)

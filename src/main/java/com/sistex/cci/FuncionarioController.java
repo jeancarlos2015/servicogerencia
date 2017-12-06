@@ -40,8 +40,8 @@ public class FuncionarioController {
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public Boolean cadastrar(@RequestBody Funcionario funcionario) {
-        Funcionario novo = funcionarioService.save(funcionario);
-        return funcionarioService.exist(novo.getIdfuncionario());
+        Funcionario novo =funcionarioService.save(funcionario);
+        return !novo.isEmpty();
     }
 
     @RequestMapping(method = RequestMethod.PUT)
@@ -51,12 +51,18 @@ public class FuncionarioController {
         return funcionarioService.update(funcionario);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//    @ResponseBody
+//    public Funcionario buscarFuncionario(@PathVariable("id") Long id) {
+//        return funcionarioService.getById(id);
+//    }
+    
+    @RequestMapping(value = "/{cpf}", method = RequestMethod.GET)
     @ResponseBody
-    public Funcionario buscarFuncionario(@PathVariable("id") String id) {
-        return funcionarioService.getById(Long.valueOf(id));
+    public Funcionario buscarFuncionarioCpf(@PathVariable("cpf") String cpf) {
+        return funcionarioService.getByRg(cpf);
     }
-
+    
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public List<Funcionario> listFuncionarios() {

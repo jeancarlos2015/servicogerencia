@@ -62,7 +62,17 @@ public class FuncionarioServicoImpl implements FuncionarioServico {
 
     @Override
     public boolean exist(Long id) {
-        return funcionarioRepositorio.exists(id);
+        try {
+            return funcionarioRepositorio.exists(id);
+        } catch (Exception e) {
+            return false;
+        }
+        
+    }
+
+    @Override
+    public boolean exist(String rg) {
+        return funcionarioRepositorio.exist(rg);
     }
 
 }

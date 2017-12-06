@@ -9,15 +9,12 @@ import com.sistex.cdp.Compra;
 import com.sistex.cdp.EmailObj;
 import com.sistex.cdp.Fornecedor;
 import com.sistex.cdp.Funcionario;
-import com.sistex.cdp.Gerente;
 import com.sistex.cdp.Notificacao;
 
 public class Fabrica {
 
     public static Fabrica make(Tipo tipo) {
         switch (tipo) {
-            case GERENTE:
-                return new FabricaGerente();
             case NOTIFICACAO:
                 return new FabricaNotificacao();
             case COMPRA:
@@ -33,10 +30,6 @@ public class Fabrica {
                 return new Fabrica();
 
         }
-    }
-
-    public Gerente criaGerente() {
-        return null;
     }
 
     public Funcionario criaFuncionario() {

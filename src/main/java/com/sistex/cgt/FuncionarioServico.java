@@ -15,6 +15,9 @@ public interface FuncionarioServico {
     void delete(Long id);
 
     boolean exist(Long id);
+    
+    
+    boolean exist(String rg);
 
     Funcionario save(Funcionario usuario);
 
