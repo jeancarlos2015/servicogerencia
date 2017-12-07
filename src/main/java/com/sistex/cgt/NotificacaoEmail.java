@@ -20,15 +20,21 @@ public class NotificacaoEmail extends NotificacaoChain {
         super(EMAIL);
     }
 
-    public void enviaEmailSimples(EmailObj emailobj) throws EmailException {
+    public boolean enviaEmailSimples(EmailObj emailobj) {
+  
+        try {
+            SimpleEmail email1 = new SimpleEmail();
+            email1.setHostName("smtp.gmail.com");
+            email1.addTo(emailobj.getDestinatario(), emailobj.getAssunto()); //destinatário
+            email1.setFrom(emailobj.getRemetente(), emailobj.getNotificao().getNomeCliente()); // remetente
+            email1.setSubject("Solicitação de material"); // assunto do e-mail
+            email1.setMsg(emailobj.getNotificao().getDescricao()); //conteudo do e-mail
+            email1.send(); //envia o e-mail
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
 
-        SimpleEmail email1 = new SimpleEmail();
-        email1.setHostName(emailobj.getHost());
-        email1.addTo(emailobj.getDestinatario(), emailobj.getAssunto()); //destinatário
-        email1.setFrom(emailobj.getRemetente(), emailobj.getNotificao().getNomeCliente()); // remetente
-        email1.setSubject("Solicitação de material"); // assunto do e-mail
-        email1.setMsg(emailobj.getNotificao().getDescricao()); //conteudo do e-mail
-        email1.send(); //envia o e-mail
     }
 
     public void enviaEmailAnexo(Anexo anexo) throws EmailException {

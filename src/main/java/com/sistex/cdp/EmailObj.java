@@ -5,10 +5,10 @@ public class EmailObj {
 
     private String host = "smtp.gmail.com";
     private String port = "587";
-    private String assunto;
-    private String texto;
-    private String destinatario;
-    private String remetente;
+    private String assunto="";
+    private String texto="";
+    private String destinatario="jeancarlospenas25@gmail.com";
+    private String remetente="jeancarlospenas25@gmail.com";
     private Notificacao notificao;
     private String nomeRemetente;
     private String nomeDestinatario;
