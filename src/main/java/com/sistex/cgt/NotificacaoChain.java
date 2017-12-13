@@ -8,7 +8,7 @@ public abstract class NotificacaoChain {
     protected Tipo idNotificacao;
     protected EmailObj email;
 
-    protected void setNext(NotificacaoChain forma) {
+    public void setNext(NotificacaoChain forma) {
         if (next == null) {
             next = forma;
         } else {

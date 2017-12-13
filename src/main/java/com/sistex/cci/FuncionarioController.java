@@ -7,6 +7,9 @@ package com.sistex.cci;
 
 import com.sistex.cdp.Funcionario;
 import com.sistex.cgt.FuncionarioServico;
+import com.sistex.cgt.NotificacaoChain;
+import com.sistex.cgt.NotificacaoDB;
+import com.sistex.cgt.NotificacaoEmail;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,7 +31,9 @@ public class FuncionarioController {
 
     @Autowired
     private FuncionarioServico funcionarioService;
-
+   
+    
+    
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public Boolean excluir(@PathVariable("id") Long id) {
